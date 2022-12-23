@@ -11,12 +11,20 @@ class ComposerStaticInit179ed937e7ac1fcd20c977f6a1b2e3e4
         array (
             'Predator\\AlifTask\\' => 18,
         ),
+        'C' => 
+        array (
+            'Core\\' => 5,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Predator\\AlifTask\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core',
         ),
     );
 
