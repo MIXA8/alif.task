@@ -6,7 +6,7 @@ require 'vendor/autoload.php';
 
 
 $programm = new OfficeRoomBook();
-$programm->addEngded();
+$programm->listFreeRoomsInTime();
 //$id = trim(fgets(STDIN));
 //$programm->listFreeRooms($id);
 //$data1='2022-12-23 15:43:02';

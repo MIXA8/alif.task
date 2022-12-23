@@ -25,12 +25,12 @@ class OfficeRoomBook
 
     public function listFreeRoomsInTime()
     {
-        echo "Введите дату и  время начало брони в формате. Пример: 2022-12-23 15:43:02";
-        $time_start = trim(fgets(STDIN));
-        echo "Введите  дату и  время конец брони в формате. Пример: 2022-12-23 15:43:02";
-        $time_finish = trim(fgets(STDIN));
-
-//        $this->connect
+        $id = $this->connect->getTrueIdRoom();
+        $time_start = $this->connect->getTrueTimestamp('Введите дату и  время начало брони в формате. Пример: 2022-12-23 15:43:02');
+        $time_finish = $this->connect->getTrueTimestamp('Введите дату и  время конец брони в формате. Пример: 2022-12-23 15:43:02');
+        if ($this->connect->checkFreeRoom($time_start, $time_finish,$id)) {
+            $this->addEngded();
+        }
     }
 
     public function addEngded()

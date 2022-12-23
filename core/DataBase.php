@@ -31,17 +31,24 @@ class DataBase
         }
     }
 
-    public function checkFreeRooms($time_start, $time_finish)
+    public function checkFreeRoom($time_start, $time_finish, $id)
     {
-        $sql = "SELECT * FROM `engadedroom` WHERE  (`user_start_time`>{$time_start} AND `user_finish_time`>{$time_finish}) OR (`user_start_time`<{$time_start} AND `user_finish_time`<{$time_finish})";
+        $sql = "SELECT * FROM `engadedroom` WHERE  `id_room`={$id} AND
+                               (`user_start_time`>='{$time_start}' AND `user_finish_time`<='{$time_finish}') OR 
+                                 ( (`user_start_time`<='{$time_start}' AND `user_finish_time`>='{$time_start}') ) OR 
+                                 ( (`user_start_time`<='{$time_finish}' AND `user_finish_time`>='{$time_finish}') ) ";
         $result = $this->connect->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "id: " . $row["id"] . " - Имя: " . $row["title"] . " \n";
+                echo "Занято! {$row['user_name']}\n";
+                echo "email {$row['email']}\n";
+                echo "Начнеться {$row['user_start_time']}\n";
+                echo "закончиться {$row['user_finish_time']}\n";
             }
         } else {
-            echo "Комнат нет";
-        }
+            echo 'Комната свободна!' . "\n";
+            return true;
+        };
     }
 
     public function addEngaded($id, $time_start, $time_finish, $name, $email)
