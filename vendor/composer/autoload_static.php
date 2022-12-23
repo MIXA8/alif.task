@@ -10,6 +10,7 @@ class ComposerStaticInit179ed937e7ac1fcd20c977f6a1b2e3e4
         'P' => 
         array (
             'Predator\\AlifTask\\' => 18,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'C' => 
         array (
@@ -21,6 +22,10 @@ class ComposerStaticInit179ed937e7ac1fcd20c977f6a1b2e3e4
         'Predator\\AlifTask\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Core\\' => 
         array (

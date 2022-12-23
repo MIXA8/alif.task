@@ -34,9 +34,9 @@ class DataBase
     public function checkFreeRoom($time_start, $time_finish, $id)
     {
         $sql = "SELECT * FROM `engadedroom` WHERE  `id_room`={$id} AND
-                               (`user_start_time`>='{$time_start}' AND `user_finish_time`<='{$time_finish}') OR 
+                               ( (`user_start_time`>='{$time_start}' AND `user_finish_time`<='{$time_finish}') OR 
                                  ( (`user_start_time`<='{$time_start}' AND `user_finish_time`>='{$time_start}') ) OR 
-                                 ( (`user_start_time`<='{$time_finish}' AND `user_finish_time`>='{$time_finish}') ) ";
+                                 ( (`user_start_time`<='{$time_finish}' AND `user_finish_time`>='{$time_finish}') ) )";
         $result = $this->connect->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
