@@ -1,0 +1,17 @@
+{
+    "name": "predator/alif.task",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Predator\\AlifTask\\": "src/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MIXA8",
+            "email": "58101328+MIXA8@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
